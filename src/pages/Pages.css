@@ -9,3 +9,13 @@
   color: var(--color-primary);
   margin-bottom: 1rem;
 }
+
+@media (max-width: 600px) {
+  .page {
+    padding: 2rem 1rem;
+  }
+
+  .page h1 {
+    font-size: 1.5rem;
+  }
+}

@@ -15,3 +15,11 @@
 .navbar a:hover {
   opacity: 0.7;
 }
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+}
