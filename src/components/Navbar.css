@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  background-color: var(--color-primary);
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  color: white;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.navbar a:hover {
+  opacity: 0.7;
+}
