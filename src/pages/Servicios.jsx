@@ -2,9 +2,8 @@ import './Pages.css';
 
 function Servicios() {
   return (
-    <div className='page'>
-      <h1>Servicios</h1>
-      <p>Acá van los servicios.</p>
+    <div className="page">
+      <h1 className="simple-page-title">Página de Servicios</h1>
     </div>
   );
 }

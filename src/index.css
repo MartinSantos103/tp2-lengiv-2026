@@ -1,9 +1,45 @@
 :root {
+  /* Paleta cromática principal */
   --color-primary: #1e3a5f;
-  --color-secondary: #4a7c9b;
-  --color-bg: #f4f6f8;
-  --color-text: #22303f;
-  --font-base: 'Segoe UI', system-ui, sans-serif;
+  --color-primary-hover: #142841;
+  --color-primary-light: #e8eef5;
+  --color-secondary: #0284c7;
+  --color-secondary-hover: #0369a1;
+  --color-accent: #0d9488;
+  
+  /* Tonos neutros */
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-border-hover: #cbd5e1;
+  
+  /* Estados */
+  --color-success: #15803d;
+  --color-success-bg: #dcfce7;
+  --color-success-border: #86efac;
+  --color-error: #b91c1c;
+  --color-error-bg: #fee2e2;
+  --color-error-border: #fca5a5;
+  --color-warning: #b45309;
+  --color-warning-bg: #fef3c7;
+  
+  /* Tipografía y medidas */
+  --font-base: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
 }
 
 * {
@@ -12,14 +48,42 @@
   box-sizing: border-box;
 }
 
+html, body {
+  min-height: 100%;
+}
+
 body {
   font-family: var(--font-base);
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea {
+  font-family: inherit;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1 0 auto;
 }
