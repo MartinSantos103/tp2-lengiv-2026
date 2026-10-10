@@ -39,7 +39,7 @@ export default function Contacto() {
             height="400"
             style={{ border: 0, borderRadius: '8px' }}
             loading="lazy"
-
+            allowFullScreen
             src={mapUrl}
           ></iframe>
         </section>
