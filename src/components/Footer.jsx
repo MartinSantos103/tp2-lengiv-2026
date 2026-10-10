@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import { useGithubProfile } from '../hooks/useGithubProfile';
 
 function Footer() {
+  const {perfil, cargando, error} = useGithubProfile();
+
+  if (cargando) return <p>Cargando datos de la API...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
     <footer className="site-footer">
       <div className="footer-container">
@@ -18,13 +24,13 @@ function Footer() {
           <h4 className="footer-heading">Información de Contacto</h4>
           <ul className="footer-info">
             <li>
-              <strong>Email:</strong> contacto@ejemplo.com
+              <strong>Email:</strong> {perfil.email ?? "-"}
             </li>
             <li>
               <strong>Horario:</strong> -
             </li>
             <li>
-              <strong>Ubicación:</strong> Salta, Argentina
+              <strong>Ubicación:</strong> {perfil.location ?? "-"}
             </li>
           </ul>
         </div>

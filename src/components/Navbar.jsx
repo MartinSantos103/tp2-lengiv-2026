@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
-function Navbar() {
+export default function Navbar() {
   return (
     <header className="site-header">
       <div className="navbar-container">
@@ -36,5 +36,3 @@ function Navbar() {
     </header>
   );
 }
-
-export default Navbar;

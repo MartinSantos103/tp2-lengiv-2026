@@ -1,11 +1,20 @@
 import './Pages.css';
+import {skills} from '../data/skills';
 
-function Servicios() {
-  return (
-    <div className="page">
-      <h1 className="simple-page-title">Página de Servicios</h1>
-    </div>
+export default function Servicios() {
+  return(
+    <main>
+      <h1>Tecnologías y Servicios</h1>
+      <div className='skills-grid'>
+        {skills.map((skill) => (
+          <div key={skill.id} className='skill-card'>
+            <img src={skill.imagen} alt={skill.nombre} width="80" /> 
+            <h2>{skill.nombre}</h2>
+            <p>{skill.descripcion}</p>
+            <span>Stack: {skill.tecnologia}</span>  
+          </div>
+        ))}
+      </div>
+    </main>
   );
 }
-
-export default Servicios;
