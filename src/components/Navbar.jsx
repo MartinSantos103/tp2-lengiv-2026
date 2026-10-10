@@ -1,37 +1,51 @@
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar() {
+  const [theme, setTheme] = useState(() => {
+    // Return 'dark' if preferred by system or saved in localStorage
+    return localStorage.getItem('theme') || 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+  };
+
   return (
     <header className="site-header">
       <div className="navbar-container">
+        
         <nav className="navbar-nav">
-          <NavLink
-            to="/"
-            end
-            className={({ isActive }) =>
-              `nav-link ${isActive ? 'nav-link-active' : ''}`
-            }
-          >
+          <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'nav-link-active' : ''}`}>
             Inicio
           </NavLink>
-          <NavLink
-            to="/servicios"
-            className={({ isActive }) =>
-              `nav-link ${isActive ? 'nav-link-active' : ''}`
-            }
-          >
+          <NavLink to="/servicios" className={({ isActive }) => `nav-link ${isActive ? 'nav-link-active' : ''}`}>
             Servicios
           </NavLink>
-          <NavLink
-            to="/contacto"
-            className={({ isActive }) =>
-              `nav-link ${isActive ? 'nav-link-active' : ''}`
-            }
-          >
+          <NavLink to="/contacto" className={({ isActive }) => `nav-link ${isActive ? 'nav-link-active' : ''}`}>
             Contacto
           </NavLink>
         </nav>
+
+        <button 
+          onClick={toggleTheme} 
+          className="theme-toggle-btn"
+          aria-label="Alternar tema"
+          title="Alternar modo claro/oscuro"
+        >
+          {theme === 'light' ? (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          ) : (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          )}
+        </button>
+
       </div>
     </header>
   );

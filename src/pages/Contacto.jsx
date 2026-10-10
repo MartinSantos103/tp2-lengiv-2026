@@ -14,23 +14,23 @@ export default function Contacto() {
   const mapUrl = `https://maps.google.com/maps?q=${mapQuery}&output=embed`;
 
   return (
-    <main className="contacto-page">
-      <h1>Contacta con nosotros</h1>
+    <main className="contacto-page page">
+      <h1 className="simple-page-title">Contacta con nosotros</h1>
       
-      <div className="contacto-layout" style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+      <div className="contacto-layout">
         
-        <section className="formulario-seccion" style={{ flex: '1', minWidth: '300px' }}>
+        <section className="formulario-seccion">
           <h2>Envíanos un mensaje</h2>
           <ContactForm />
         </section>
 
-        <section className="mapa-seccion" style={{ flex: '1', minWidth: '300px' }}>
-          <h2>Nuestra Ubicación (Basada en el Perfil)</h2>
+        <section className="mapa-seccion">
+          <h2>Ubicación</h2>
           
           {cargando ? (
             <p>Cargando ubicación en el mapa...</p>
           ) : error ? (
-            <p>Error al cargar la ubicación dinámica. Mostrando sede central.</p>
+            <p>Error al cargar la ubicación dinámica.</p>
           ) : null}
 
           <iframe
